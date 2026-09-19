@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Turn an image into a Trump-themed transformation GIF in your browser.">
+  <title>Trumpify</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header class="topbar">
+    <div><p class="eyebrow">IMAGE TRANSFORMER</p><h1>Trumpify</h1></div>
+    <a class="github" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+  </header>
+  <section class="hero">
+    <h2>Turn any image into a Trump transformation.</h2>
+    <p>Upload an image, choose an effect, then generate a GIF directly in your browser.</p>
+  </section>
+  <section class="workspace">
+    <div class="panel upload-panel">
+      <div class="panel-heading"><h3>Source image</h3><span id="fileName">No file selected</span></div>
+      <label class="dropzone" id="dropzone" for="fileInput">
+        <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+        <div class="upload-icon">+</div><strong>Drop an image here</strong><span>or click to browse</span>
+      </label>
+      <div class="preview-wrap hidden" id="previewWrap"><img id="sourcePreview" alt="Uploaded image preview"></div>
+    </div>
+    <div class="panel settings-panel">
+      <div class="panel-heading"><h3>Settings</h3></div>
+      <label class="field"><span>Transition</span><select id="effect"><option value="crossfade">Crossfade</option><option value="zoom">Zoom + crossfade</option><option value="shake">Shake + crossfade</option></select></label>
+      <label class="field"><span>Frames <output id="frameValue">24</output></span><input id="frames" type="range" min="8" max="48" value="24"></label>
+      <label class="field"><span>Frame duration <output id="durationValue">70ms</output></span><input id="duration" type="range" min="30" max="200" step="10" value="70"></label>
+      <button class="primary" id="generate" disabled>Generate GIF</button>
+      <button class="secondary" id="download" disabled>Download GIF</button>
+      <p class="status" id="status">Upload an image to begin.</p>
+    </div>
+  </section>
+  <section class="panel result-panel">
+    <div class="panel-heading"><h3>Result</h3><span id="resultSize"></span></div>
+    <div class="result" id="result"><div class="empty">Your generated GIF will appear here.</div></div>
+  </section>
+  <footer><span>Runs locally in your browser.</span><span>Fan-made image effect tool.</span></footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
